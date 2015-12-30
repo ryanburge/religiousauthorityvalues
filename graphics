@@ -1,0 +1,13 @@
+*/Scatter Plot
+
+twoway scatter m_con1 m_evs1, xlabel(0(1)5) xscale(range(1 5.1)) xtitle("Emergent Values") ///
+ylabel(0(1)5) yscale(range(1 5.1)) ytitle("Conservative Theology") m(none) mlabel(den1) graphregion(color(white))
+
+*/evs_contheo_authority
+
+
+*/Histogram of EVS and ConTheo
+
+twoway  (hist contheo, color(gray)percent)  ///
+(hist rav,  fcolor(none)  lcolor (black)percent ), ///
+ graphregion(color(white)) legend(order(1 "Conservative Theology" 2 "Religious Authority" ) region(color(white)))
