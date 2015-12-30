@@ -1,0 +1,23 @@
+reg authority relcon   exp educ male polcon congsize
+estimates store A
+reg authority rav  exp educ male polcon congsize
+estimates store B
+reg authority relcon rav  exp educ male polcon congsize
+estimates store C
+coefplot A  || B ||  C, drop(_cons) byopts(row(1)) xline(0) graphregion(color(white)) xtitle(Child Rearing Values) order(relcon rav)
+
+reg deliberation relcon   exp educ male polcon congsize
+estimates store A
+reg deliberation rav  exp educ male polcon congsize
+estimates store B
+reg deliberation relcon rav  exp educ male polcon congsize
+estimates store C
+coefplot A  || B ||  C, drop(_cons) byopts(row(1)) xline(0) graphregion(color(white)) xtitle(Deliberative Values) order(relcon rav)
+
+reg dem relcon   exp educ male polcon congsize
+estimates store A
+reg dem rav  exp educ male polcon congsize
+estimates store B
+reg dem relcon rav  exp educ male polcon congsize
+estimates store C
+coefplot A  || B ||  C, drop(_cons) byopts(row(1)) xline(0) graphregion(color(white)) xtitle(Democratic Norms) order(relcon rav)
