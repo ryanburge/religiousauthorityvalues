@@ -1,0 +1,147 @@
+*/Recodes 
+
+alpha q26_2 q26_3 q26_5 q26_7 q26_9, gen(pomo)
+gen pomo2 = pomo
+drop pomo
+gen pomo = 6-pomo2
+gen rav = 6-pomo
+
+alpha q26_3 q26_5 q26_7 q26_9, gen(rav44)
+gen rav4 = 6-rav44
+
+
+alpha q26_2 q26_3 q26_5, gen(test)
+gen rav_test = 6 - test
+
+gen congsize = q49
+gen congclass = q53
+gen male =q62
+recode male 1=1 else=0
+gen educ = q71
+
+replace q69_1_text = "15" in 1
+replace q69_1_text = "35" in 5
+replace q69_1_text = "20" in 16
+replace q69_1_text = "18" in 22
+replace q69_1_text = "15" in 25
+replace q69_1_text = "43" in 39
+replace q69_1_text = "20" in 75
+replace q69_1_text = "45" in 95
+replace q69_1_text = "21" in 98
+replace q69_1_text = "25" in 104
+replace q69_1_text = "56" in 105
+replace q69_1_text = "47" in 116
+replace q69_1_text = "42" in 119
+replace q69_1_text = "24" in 146
+replace q69_1_text = "17" in 147
+replace q69_1_text = "22" in 152
+replace q69_1_text = "14" in 158
+replace q69_1_text = "38" in 162
+replace q69_1_text = "42" in 166
+replace q69_1_text = "13" in 188
+replace q69_1_text = "7" in 200
+replace q69_1_text = "14" in 213
+replace q69_1_text = "29" in 220
+replace q69_1_text = "1" in 231
+replace q69_1_text = "36" in 239
+replace q69_1_text = "25" in 242
+replace q69_1_text = "29" in 254
+replace q69_1_text = "4" in 261
+replace q69_1_text = "18" in 264
+replace q69_1_text = "15" in 306
+replace q69_1_text = "35" in 310
+replace q69_1_text = "20" in 321
+replace q69_1_text = "18" in 327
+replace q69_1_text = "15" in 330
+replace q69_1_text = "43" in 344
+replace q69_1_text = "30" in 379
+replace q69_1_text = "14" in 388
+replace q69_1_text = "15" in 394
+replace q69_1_text = "12" in 396
+replace q69_1_text = "32" in 421
+replace q69_1_text = "27" in 427
+replace q69_1_text = "62" in 430
+replace q69_1_text = "12" in 442
+replace q69_1_text = "40" in 443
+replace q69_1_text = "36" in 455
+replace q69_1_text = "30" in 456
+replace q69_1_text = "40" in 460
+replace q69_1_text = "6" in 468
+
+gen exp = q69_1
+
+
+gen polcon = q63
+recode polcon 8=0
+
+gen ecmid = q66_8
+recode ecmid 1=1 else=0
+
+alpha  q68_1 q68_2 q68_3 q68_4 q68_5 q68_6, gen (relcon)
+
+ 
+alpha q30_1 q30_2 q30_3, gen (authority)
+
+
+gen dem1 = 5- q40_1
+gen dem2 = 5- q40_2
+gen dem3 = 5- q40_3
+gen dem4 = 5- q40_4
+alpha dem1 dem2 dem3 dem4, gen(dem)
+
+gen delib1 = 5- q47_1
+gen delib2 = 5- q47_2
+gen delib3 = 5- q47_3
+gen delib4 = 5- q47_4
+gen delib5 = 5- q47_5
+alpha delib1 delib2 delib3 delib4 delib5, gen(deliberation)
+
+
+
+gen evan = q66_1
+gen fundie = q66_2
+gen liberal = q66_3
+gen orthodox = q66_4
+gen ecumenical = q66_5
+gen pentecostal = q66_6
+gen conservative  = q66_7
+recode evan 1=1 else=0
+recode fundie 1=1 else=0
+recode liberal 1=1 else=0
+recode orthodox 1=1 else=0
+recode ecumenical 1=1 else=0
+recode pentecostal 1=1 else=0
+recode conservative 1=1 else=0
+
+gen p1 = q43_1
+gen p2 = q43_2
+gen p3 = q43_3
+gen p4 = q43_4
+gen p5 = q43_5
+gen p6 = q43_6
+gen p7 = q43_7
+gen p8 = q43_8
+gen p9 = q43_9
+gen p10 = q43_10
+recode p1 1=1 else=0
+recode p2 1=1 else=0
+recode p3 1=1 else=0
+recode p4 1=1 else=0
+recode p5 1=1 else=0
+recode p6 1=1 else=0
+recode p7 1=1 else=0
+recode p8 1=1 else=0
+recode p9 1=1 else=0
+recode p10 1=1 else=0
+gen polpar = p1+p2+p3+p4+p5+p6+p7+p8+p9+p10
+
+label variable p1 "Voted"
+label variable p2 "Contacted Official"
+label variable p3 "Donated Money"
+label variable p4 "Campaign Volunteer"
+label variable p5 "Interest Group Vol."
+label variable p6 "Asked Cong. to Vote"
+label variable p7 "Protested"
+label variable p8 "Attended a Rally"
+label variable p9 "Pol. Study Group"
+label variable p10 "Registered Voters"
